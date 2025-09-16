@@ -4,20 +4,26 @@ import About from '@/pages/about'
 import Blog from './pages/blog'
 import Header from './pages/header'
 import Footer from './pages/footer'
+import { Post } from './components/blog/post'
+import { NewPost } from './components/blog/newpost'
 function App() {
 
   return (
     <div className="flex flex-col min-h-screen h-screen bg-gray-100 justify-between p-4">
       <Header />
+      <main className="flex-grow">
       <Switch>
         <Route path="/" component={Home}/>
         <Route path="/blog" component={Blog}/>
+        <Route path="/blog/:id" component={Post}/>
+        <Route path="/blog/new" component={NewPost}/>
         <Route path="/about" component={About}/>
       
         <Route>
           <h1>404 Not Found</h1>
         </Route>
       </Switch>
+      </main>
       <Footer />
     </div>
   )
